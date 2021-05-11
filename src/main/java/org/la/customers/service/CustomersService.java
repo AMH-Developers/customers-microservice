@@ -37,8 +37,7 @@ public class CustomersService {
 			return "adult";
 	} else {
 		return "kid";
-	}
-	
+	}	
 }
 
 
@@ -48,6 +47,22 @@ public class CustomersService {
 	}
 
 
+	public void delete(Long id) {
+		customersRepository.deleteById(id);
+	}
+
+
+	public CustomersModel update(Long id, CustomersModel customersModel) {
+		CustomersModel cust = customersRepository.findById(id).orElse(null);
+		cust.setName(customersModel.getName());
+		cust.setAge(customersModel.getAge());
+		cust.setEmail(customersModel.getEmail());
+		cust.setPhoneNumber(customersModel.getPhoneNumber());
+		customersModel = customersRepository.save(cust);
+		return customersModel;
+	}
+
+	
 	
 
 }
