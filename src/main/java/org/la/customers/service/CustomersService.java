@@ -22,10 +22,15 @@ public class CustomersService {
 
 	public CustomersModel findById(Long id) {
 		CustomersModel  customersModel = customersRepository.findById(id).get();
-		return customersModel;
-		 
+		return customersModel; 
 	}
-	
+
+
+	public CustomersModel add(CustomersModel customersModel) {
+		return customersRepository.save(customersModel);
+	}
+
+
 	
 
 }
