@@ -31,6 +31,23 @@ public class CustomersService {
 	}
 
 
+	public String findAgeById(Long id) {
+		CustomersModel customers = customersRepository.findById(id).get();
+		if(customers.getAge() > 18) {
+			return "adult";
+	} else {
+		return "kid";
+	}
+	
+}
+
+
+	public CustomersModel findByName(String name) {
+		CustomersModel customersModel = customersRepository.findByName(name);
+		return customersModel;
+	}
+
+
 	
 
 }

@@ -24,7 +24,7 @@ public class CustomersRestController {
 		return customersService.findAll();
 	}
 	
-	@GetMapping("/findById/{id}")
+	@GetMapping("/findById/{[id}")
 	public CustomersModel findById(@PathVariable Long id) {
 		return customersService.findById(id);
 	}
@@ -34,4 +34,14 @@ public class CustomersRestController {
 		return customersService.add(customersModel);
 	}
 	
+	@GetMapping("/age/{id}")
+	public String findAgeById(@PathVariable Long id) {
+		return customersService.findAgeById(id);
+	}
+	
+	@GetMapping("/name/{name}")
+	public CustomersModel findByName(@PathVariable String name) {
+		CustomersModel customersModel = customersService.findByName(name);
+		return customersModel;
+	}
 }
