@@ -18,6 +18,13 @@ public class CustomersService {
 		List<CustomersModel> customersList = customersRepository.findAll();
 		return customersList;
 	}
+
+
+	public CustomersModel findById(Long id) {
+		CustomersModel  customersModel = customersRepository.findById(id).get();
+		return customersModel;
+		 
+	}
 	
 	
 
